@@ -98,7 +98,7 @@ class PlateauFinder(object):
         
         '''
         run our algorithm to find the plateau locations. This function does not return anything
-        itself but runs the algorithm and attached several atti=ributes to our class instance.
+        itself but runs the algorithm and attached several attributes to our class instance.
         
         Attributes
         ----------
@@ -129,7 +129,7 @@ class PlateauFinder(object):
             f : (function)
                 The function that takes 'var' as a variable
             var : (array)
-                  Thevariable passed to our function 'f'
+                  The variable passed to our function 'f'
             step : (float)
                    The step size for our derivative
 
