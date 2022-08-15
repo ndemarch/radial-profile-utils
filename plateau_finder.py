@@ -208,9 +208,9 @@ class PlateauFinder(object):
         x90 : (float)
               The x-value which contains 90 percent of our CDF.
         x_max : (float)
-                The x-value our algorithm cutoff at.
+                The x-value our algorithm cut off at.
         total_y : (float)
-                  The total y-value. This is our 'maximum'
+                  The total y-value at x_max. This is our 'maximum'.
 
         '''
         
@@ -229,7 +229,7 @@ class PlateauFinder(object):
         if not condition:
             print('[WARNING]: Initial y-value is larger than half the total y-value. Not able to measure meaningful x_50')
             x50 = self.x[0]
-            x90 = self.interp_x[np.where(self.interp_y <= total_y*0.9)[0][-1]]
+            x90 = self.interp_x[np.where((self.interp_y <= total_y * 0.9) & (self.interp_x < x_max))[0][-1]]
         else:
             # Find R50 and R90
             index_50 = np.where((self.interp_y <= total_y / 2) & (self.interp_x < x_max))[0][-1]
