@@ -6,7 +6,7 @@ Created November 2021: Nick DeMarchi
 import numpy as np
 from astropy.io import fits
 import astropy.units as u
-from astropy.coordinates import Angle, Skycoord
+from astropy.coordinates import Angle, SkyCoord 
 from astroquery.vizier import Vizier
 from astropy.nddata import Cutout2D
 from astropy.wcs import WCS
