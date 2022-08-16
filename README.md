@@ -1,5 +1,5 @@
 # radial-profile-utils
-A collection of code to create radial profiles and measure various quantities. Requires [Numpy](https://numpy.org/install/), [Astropy](https://docs.astropy.org/en/stable/install.html), [Matplotlib](https://matplotlib.org/stable/users/installing/index.html#:~:text=If%20you%20are%20using%20the,sudo%20yum%20install%20python3%2Dmatplotlib), [Scipy](https://scipy.org/install/), [Astroquery](https://astroquery.readthedocs.io/en/latest/), [Photutils](https://photutils.readthedocs.io/en/stable/install.html#)
+A collection of code to create radial profiles and measure various quantities. Requires [Numpy](https://numpy.org/install/), [Astropy](https://docs.astropy.org/en/stable/install.html), [Matplotlib](https://matplotlib.org/stable/users/installing/index.html#:~:text=If%20you%20are%20using%20the,sudo%20yum%20install%20python3%2Dmatplotlib), [Scipy](https://scipy.org/install/), [Astroquery](https://astroquery.readthedocs.io/en/latest/) and [Photutils](https://photutils.readthedocs.io/en/stable/install.html#).
 
 This repository contains the following functions:
 
