@@ -1,3 +1,4 @@
+# Mainly need NGC 4535 for this example but the full list of galaxies used exists here
 IC3392
 NGC4189
 NGC4192
