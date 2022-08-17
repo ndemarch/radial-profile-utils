@@ -5,5 +5,4 @@ A collection of code to create radial profiles, measure total flux for noisy dat
 
 -- sampe_data containes the images and galaxy name text file used for our jupyter notebook example 'sample_notebook.ipynb'.
 
--- radial_profile.py and radial_profile_utils.py contain the main function to create our radial profile (courtesy  Isaac Cheng @BearBearCodes
-)
+-- radial_profile.py and radial_profile_utils.py contain the main functions to create our radial profile (credit: @BearBearCodes)
