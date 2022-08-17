@@ -23,9 +23,12 @@ class MaskSources(object):
     ----------
     data : (N X M array)
            The galaxy image.
+    
+    wcs : (astropy.wcs.wcs.WCS)
+          The World Coordinate System of our galaxy image
            
-    header : (astropy.io.fits.header.Header)
-             The FITS file header for our image.
+    header : optional (astropy.io.fits.header.Header)
+             If wcs is None then the FITS file header for our image must be provided.
              
     name : (string)
            The galaxy name.
@@ -54,21 +57,25 @@ class MaskSources(object):
             The boolean mask for our image; under ProfileMask.disk_mask
     """
 
-    def __init__(self, data, header, name, path_to_table, ps=None, include_galaxy=False, large_incl_corr=True, incl_limit=0.2):
+    def __init__(self, data, wcs = None, header = None, name, path_to_table, ps=None, include_galaxy=False, large_incl_corr=True, incl_limit=0.2):
         
         if data.ndim != 2:
             raise ValueError('data must be 2 dimensional image')
         if ps is None:
             raise ValueError('pixel-scale must be specified')
+        
+        if wcs is None and header is not None:
+            self.w = WCS(header)
+        elif wcs is not None:
+            self.w = wcs
+        else:
+            raise ValueError('wcs and/or header were not provided. One must be provided')
 
         self.data = data
-        self.header = header
         self.name = name
         self.path_to_table = path_to_table
         self.ps = ps
         self.include_galaxy = include_galaxy
-        # load WCS
-        self.w = WCS(header)
         self.large_incl_corr = large_incl_corr
         self.incl_limit = incl_limit
         # run our nested function
