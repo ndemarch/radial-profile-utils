@@ -65,8 +65,10 @@ def sky_background(data, centre, r_in, r_out, mask = None, add_plot = False):
     ap = CircularAnnulus(positions=centre, r_in=r_in, r_out=r_out)
             
     sum_flux = ap.do_photometry(data, method = 'exact')[0][0]
+
+    # NOTE: photutils considers True values in mask as those being masked. Therefore we use ~mask.
     
-    area = ap.area_overlap(data, method='exact', mask = mask) # just incase our ellipses are larger than the 2D image
+    area = ap.area_overlap(data, method='exact', mask = ~mask) # just incase our ellipses are larger than the 2D image
     
     # now intensity
     

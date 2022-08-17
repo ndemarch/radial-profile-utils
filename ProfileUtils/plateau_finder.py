@@ -191,6 +191,15 @@ class PlateauFinder(object):
         self.interp_x = r
         self.interp_y = F
         self.cutoff = cutoff
+
+        # create attributes feature
+        self.attrs = {}
+        self.attrs['cutoff'] = self.cutoff
+        self.attrs['interp_x'] = self.interp_x
+        self.attrs['interp_y'] = self.interp_y
+        self.attrs['threshold'] = self.threshold
+        self.attrs['plateau_length'] = self.plateau_length
+        self.attrs['derivative'] = self.derivative
         
     def return_totals(self):
         '''

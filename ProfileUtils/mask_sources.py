@@ -57,7 +57,7 @@ class MaskSources(object):
             The boolean mask for our image; under ProfileMask.disk_mask
     """
 
-    def __init__(self, data, wcs = None, header = None, name, path_to_table, ps=None, include_galaxy=False, large_incl_corr=True, incl_limit=0.2):
+    def __init__(self, data, name, path_to_table, wcs = None, header = None, ps=None, include_galaxy=False, large_incl_corr=True, incl_limit=0.2):
         
         if data.ndim != 2:
             raise ValueError('data must be 2 dimensional image')
