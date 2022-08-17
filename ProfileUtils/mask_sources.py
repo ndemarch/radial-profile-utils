@@ -198,4 +198,3 @@ class MaskSources(object):
                 disk_mask |= radius_map_j < (1.5 * r25_j)
         # the final return
         return (~disk_mask)
-    
