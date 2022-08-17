@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
+
 """
 Created on Wed Aug  3 14:53:13 2022
 
@@ -81,11 +82,11 @@ def sky_background(data, centre, r_in, r_out, mask = None, add_plot = False):
         plt.figure(figsize = (9,8))
         
         norm = colors.LogNorm(vmax = data.max(), vmin = data[data>0].min())
-        plt.imshow(data, cmap='afmhot_r', origin='lower',norm=norm)
-        plt.xlabel('$x$ / pixel',fontsize = 15)
-        plt.ylabel('$y$ / pixel',fontsize=15)
+        plt.imshow(data, cmap='afmhot_r', origin='lower', norm=norm)
+        plt.xlabel('$x$ / pixel',fontsize = 18)
+        plt.ylabel('$y$ / pixel',fontsize = 18)
         cbar = plt.colorbar()
-        cbar.set_label('Intensity', fontsize = 15)
+        cbar.set_label('Intensity', fontsize = 18)
         ap.plot(color = 'b', lw = 8)
     
     return intensity, area
