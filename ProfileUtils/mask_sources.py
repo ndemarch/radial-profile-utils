@@ -16,48 +16,51 @@ from astroquery.vizier import Vizier
 
 
 class MaskSources(object):
-    """
-    Class for creating a mask for a galaxy image.
-    
-    Parameters
-    ----------
-    data : (N X M array)
-           The galaxy image.
-    
-    wcs : (astropy.wcs.wcs.WCS)
-          The World Coordinate System of our galaxy image
-           
-    header : optional (astropy.io.fits.header.Header)
-             If wcs is None then the FITS file header for our image must be provided.
-             
-    name : (string)
-           The galaxy name.
-           
-    path_to_table : (string)
-                    This should be a path to a table that contains the columns 'RA', 'DEC', 'pa', 'inclination'
-                    and 'Galaxy'.
-                    NOTE: This was created for my purpose to use the VERTICO tables from Toby Brown 2021 paper. 
-                    The __init__ can be edited to load these values itself rather than point to a directory 
-                    where the table is stored.
-                    
-    ps : (float)
-         The pixel scale four our image.
-         
-    include_galaxy : (bool)
-                     If True we also mask our galaxy. Default is False.
-                     
-    large_incl_corr : (bool)
-                      Large inclination correction. If True we correct for inclination based on parameter 'incl_limit'.
-                      The default is True.
-                      
-    incl_limit : (float)
-                 The cos(inclination) limit. Default is cos(inclination) = 0.2.
-    Returns
-    -------
-            The boolean mask for our image; under ProfileMask.disk_mask
-    """
 
     def __init__(self, data, name, path_to_table, wcs = None, header = None, ps=None, include_galaxy=False, large_incl_corr=True, incl_limit=0.2):
+        
+        """
+        
+        Class for creating a mask for a galaxy image.
+        
+        Parameters
+        ----------
+        data : (N X M array)
+               The galaxy image.
+        
+        wcs : (astropy.wcs.wcs.WCS)
+              The World Coordinate System of our galaxy image
+               
+        header : optional (astropy.io.fits.header.Header)
+                 If wcs is None then the FITS file header for our image must be provided.
+                 
+        name : (string)
+               The galaxy name.
+               
+        path_to_table : (string)
+                        This should be a path to a table that contains the columns 'RA', 'DEC', 'pa', 'inclination'
+                        and 'Galaxy'.
+                        NOTE: This was created for my purpose to use the VERTICO tables from Toby Brown 2021 paper. 
+                        The __init__ can be edited to load these values itself rather than point to a directory 
+                        where the table is stored.
+                        
+        ps : (float)
+             The pixel scale four our image.
+             
+        include_galaxy : (bool)
+                         If True we also mask our galaxy. Default is False.
+                         
+        large_incl_corr : (bool)
+                          Large inclination correction. If True we correct for inclination based on parameter 'incl_limit'.
+                          The default is True.
+                          
+        incl_limit : (float)
+                     The cos(inclination) limit. Default is cos(inclination) = 0.2.
+        Returns
+        -------
+                The boolean mask for our image; under ProfileMask.disk_mask
+                
+        """
         
         if data.ndim != 2:
             raise ValueError('data must be 2 dimensional image')
@@ -195,4 +198,3 @@ class MaskSources(object):
                 disk_mask |= radius_map_j < (1.5 * r25_j)
         # the final return
         return (~disk_mask)
-    

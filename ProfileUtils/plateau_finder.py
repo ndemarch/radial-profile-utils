@@ -1,8 +1,10 @@
 # -*- coding: utf-8 -*-
+
 ''' 
 To find total flux, especially for noisy data. Also can calculate r50, and r90. 
 Created May 2022: Nick DeMarchi
 '''
+
 import numpy as np
 from scipy.interpolate import interp1d
 
