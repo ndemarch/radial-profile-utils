@@ -59,11 +59,13 @@ class PlateauFinder(object):
         if data.shape[0] == data.ndim:
             x = data[0]
             y = data[1]
-        else:
+        elif data.shape[1] == data.ndim:
             print("[WARNING]: make sure that 'data' input is a 2 X N array. Taking transpose of input array")
             data = data.T
             x = data[0]
             y = data[1]
+        else:
+            raise ValueError('data input is not the proper shape. Must be 2XN array (i.e. (x,y))')
         
         if isinstance(x, np.ndarray) == False:
             x = np.asarray(x,dtype = type(x))
